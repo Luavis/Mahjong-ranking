@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+require 'daemons'
+require './app'
+require './libs/app_logger'
+
+Daemons.daemonize
+Dir.chdir("/root/mh.admin")
+
+AppLogger.instance.info "daemon start"
+app_main
